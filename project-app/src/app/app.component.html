@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-header (menuSelected)="onNavigate($event)"></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-recipes *ngIf="menu === 'recipe'"></app-recipes>
+      <app-shopping-list *ngIf="menu !== 'recipe'"></app-shopping-list>
+    </div>
+  </div>
+</div>
+<br>
+<app-footer></app-footer>
+
+
