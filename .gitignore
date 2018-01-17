@@ -1,5 +1,7 @@
 # TODO - Put one here for Angular IDE (WebStorm)
 
+.DS_Store
+
 # Created by https://www.gitignore.io/api/intellij
 
 ### Intellij ###
