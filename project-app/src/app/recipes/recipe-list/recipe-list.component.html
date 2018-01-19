@@ -4,9 +4,6 @@
   </div>
 </div>
 <div class="row">
-  <app-recipe-item
-    *ngFor="let recipeItem of recipes" [recipe]="recipeItem"
-    (recipeSelected)="onRecipeSelect(recipeItem)"
-  ></app-recipe-item>
+  <app-recipe-item *ngFor="let recipeItem of recipes" [recipe]="recipeItem"></app-recipe-item>
 </div>
 
