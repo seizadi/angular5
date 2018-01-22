@@ -2,20 +2,21 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsRecipeBook" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">Recipe Book</a>
+  <a class="navbar-brand" routerLink="/">Recipe Book</a>
 
   <div class="collapse navbar-collapse" id="navbarsRecipeBook">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/recipes">Recipes</a>
+        <a class="nav-link" routerLink="/recipes" routeLinkActive="active">Recipes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/shopping">Shopping List</a>
+        <a class="nav-link" routerLink="/shopping" routeLinkActive="active">Shopping List</a>
       <li class="nav-item dropdown" ngbDropdown>
-        <a class="nav-link dropdown-toggle"  id="dropdown01" href="#" data-toggle="dropdown" ngbDropdownToggle>Manage</a>
+        <a class="nav-link dropdown-toggle"  id="dropdown01" style="cursor: pointer"
+           data-toggle="dropdown" ngbDropdownToggle>Manage</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01" ngbDropdownMenu>
-          <a class="dropdown-item" href="#">Save Data</a>
-          <a class="dropdown-item" href="#">Fetch Data</a>
+          <a class="dropdown-item" routerLink="/">Save Data</a>
+          <a class="dropdown-item" routerLink="/">Fetch Data</a>
         </div>
       </li>
     </ul>
