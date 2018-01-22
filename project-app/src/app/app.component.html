@@ -1,10 +1,10 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<app-header (menuSelected)="onNavigate($event)"></app-header>
+<!--The content below is managed by AngularJS applciation. -->
+<app-header></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes *ngIf="menu === 'recipe'"></app-recipes>
-      <app-shopping-list *ngIf="menu !== 'recipe'"></app-shopping-list>
+      <router-outlet></router-outlet>
+      <!-- Routed views go here -->
     </div>
   </div>
 </div>

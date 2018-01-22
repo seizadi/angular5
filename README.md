@@ -88,6 +88,10 @@ To use ng-boot we will transform it to:
 ```html
         <a href="#" class="btn btn-secondary-outline btn-sm" role="button">&darr;</a>
 ```
+Rather than use ngBootStrap, there is an implementation of a Dropdown Directive to
+show how to handle the control, eventually should implement a Dropdown Compoenet also
+that will load the Dropdown and handle the control. 
+See app/src/common/dropdown.directive.ts
 ### Run Application
 ```bash
 $ ng server
@@ -124,6 +128,10 @@ The HTML partial app.component.html is inserted.
 To create a new component:
 ```bash
 $ ng generate component <name> # ng g c short form
+```
+To create a new directive:
+```bash
+$ ng generate directive <name> # ng g d short form
 ```
 ## References
    * [TypeScript documentation](http://www.typescriptlang.org/Handbook)

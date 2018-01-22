@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {RouterModule, Routes} from "@angular/router";
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +14,17 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { FooterComponent } from './footer/footer.component';
 import { DropdownDirective } from './common/dropdown.directive';
+import { ErrorComponent } from './error/error.component';
+
+const appRoutes: Routes = [
+  { path: 'recipes', component: RecipesComponent},
+  { path: 'shopping', component: ShoppingListComponent },
+  { path: '',
+    redirectTo: '/recipes',
+    pathMatch: 'full'
+  },
+  { path: '**', component: ErrorComponent }
+];
 
 
 @NgModule({
@@ -26,11 +38,16 @@ import { DropdownDirective } from './common/dropdown.directive';
     ShoppingListComponent,
     ShoppingEditComponent,
     FooterComponent,
-    DropdownDirective
+    DropdownDirective,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

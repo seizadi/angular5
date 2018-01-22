@@ -9,11 +9,4 @@ import {ShoppingListService} from "./services/shopping-list.service";
   styleUrls: ['./app.component.scss'],
   providers: [RecipesService, IngredientsService, ShoppingListService]
 })
-export class AppComponent {
-  menu: string = 'recipe';
-
-  onNavigate(event: {menu: string}) {
-      this.menu = event.menu;
-  }
-
-}
+export class AppComponent { }
