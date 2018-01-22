@@ -1,6 +1,8 @@
+import {EventEmitter, Output} from "@angular/core";
 import {IngredientModel} from "../models/ingredient.model";
 
 export class IngredientsService {
+  @Output() ingredientChange = new EventEmitter();
 
   private ingredients: IngredientModel[] = [
     new IngredientModel("Apples", "10"),
@@ -13,5 +15,22 @@ export class IngredientsService {
 
   getIngredients(): IngredientModel[] {
     return this.ingredients.slice();
+  }
+
+  getRecipeIngredients(refs: number[]): IngredientModel[] {
+    console.log(this.ingredients);
+    let retIngredients: IngredientModel[] = [];
+    for (let ingredient of this.ingredients) {
+      for (let ref of refs) {
+        if (ingredient.id == ref)
+          retIngredients.push(ingredient);
+      }
+    }
+    return retIngredients;
+  }
+
+  addIngredient(ingredient: IngredientModel){
+    this.ingredients.push(ingredient);
+    this.ingredientChange.emit();
   }
 }

@@ -1,11 +1,11 @@
 export class RecipeModel {
-  public name: string;
-  public description: string;
-  public imagePath: string;
-
-  constructor(name:string, description:string, imagePath:string){
-    this.name = name;
-    this.description = description;
-    this.imagePath = imagePath;
+  private static idGen: number = 0;
+  id:number;
+  constructor(public name:string,
+              public description:string,
+              public imagePath: string,
+              public ingredientRefs: number[]){
+    this.id = RecipeModel.idGen;
+    RecipeModel.idGen++;
   }
 }
