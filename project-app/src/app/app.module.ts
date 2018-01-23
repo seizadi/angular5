@@ -15,6 +15,8 @@ import { FooterComponent } from './footer/footer.component';
 import { DropdownDirective } from './common/dropdown.directive';
 import { ErrorComponent } from './error/error.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { NoRecipeComponent } from './recipes/no-recipe/no-recipe.component';
+import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import {AppRoutingModule} from "./app-routing.module";
     ShoppingEditComponent,
     FooterComponent,
     DropdownDirective,
-    ErrorComponent
+    ErrorComponent,
+    NoRecipeComponent,
+    EditRecipeComponent
   ],
   imports: [
     BrowserModule,

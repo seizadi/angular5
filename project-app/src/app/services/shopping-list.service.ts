@@ -2,6 +2,7 @@ import {EventEmitter, Injectable, Output} from "@angular/core";
 import {IngredientsService} from "./ingredients.service";
 import {ShoppingListModel} from "../models/shopping-list.model";
 import {IngredientModel} from "../models/ingredient.model";
+import {RecipeModel} from "../models/recipe.model";
 
 @Injectable()
 export class ShoppingListService {
@@ -17,9 +18,12 @@ export class ShoppingListService {
     return this.shoppingList.slice();
   }
 
-  addShoppingList(shoppingList: ShoppingListModel){
-    this.shoppingList.push(shoppingList);
-    this.shoppingListChange.emit();
+  getRecipe(id: number): ShoppingListModel{
+    for (let shoppingListItem of this.shoppingList){
+      if (shoppingListItem.id == id)
+        return shoppingListItem;
+    }
+    return null;
   }
 
   getIngredients(): IngredientModel[] {
@@ -31,4 +35,10 @@ export class ShoppingListService {
     }
     return ingredients;
   }
+
+  addShoppingList(shoppingList: ShoppingListModel){
+    this.shoppingList.push(shoppingList);
+    this.shoppingListChange.emit();
+  }
+
 }

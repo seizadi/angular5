@@ -21,11 +21,20 @@ export class RecipesService {
   constructor(private ingredientService: IngredientsService){
   }
 
+  getRecipes(): RecipeModel[] {
+    return this.recipes.slice();
+  }
+
+  getRecipe(id: number): RecipeModel{
+    for (let recipe of this.recipes){
+      if (recipe.id == id)
+        return recipe;
+    }
+    return null;
+  }
+
   getRecipeIngredients(refs: number[]): IngredientModel[]{
     return this.ingredientService.getRecipeIngredients(refs);
   }
 
-  getRecipes(): RecipeModel[] {
-    return this.recipes.slice();
-  }
 }

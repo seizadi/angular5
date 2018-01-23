@@ -17,6 +17,14 @@ export class IngredientsService {
     return this.ingredients.slice();
   }
 
+  getIngredient(id: number): IngredientModel{
+    for (let ingredient of this.ingredients){
+      if (ingredient.id == id)
+        return ingredient
+    }
+    return null;
+  }
+
   getRecipeIngredients(refs: number[]): IngredientModel[] {
     console.log(this.ingredients);
     let retIngredients: IngredientModel[] = [];
@@ -33,4 +41,5 @@ export class IngredientsService {
     this.ingredients.push(ingredient);
     this.ingredientChange.emit();
   }
+
 }
