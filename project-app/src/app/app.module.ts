@@ -15,8 +15,8 @@ import { FooterComponent } from './footer/footer.component';
 import { DropdownDirective } from './common/dropdown.directive';
 import { ErrorComponent } from './error/error.component';
 import {AppRoutingModule} from "./app-routing.module";
-import { NoRecipeComponent } from './recipes/no-recipe/no-recipe.component';
-import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 
 @NgModule({
@@ -32,8 +32,8 @@ import { EditRecipeComponent } from './recipes/edit-recipe/edit-recipe.component
     FooterComponent,
     DropdownDirective,
     ErrorComponent,
-    NoRecipeComponent,
-    EditRecipeComponent
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,

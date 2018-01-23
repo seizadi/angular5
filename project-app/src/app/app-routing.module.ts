@@ -4,9 +4,9 @@ import {RouterModule, Routes} from "@angular/router";
 import {ErrorComponent} from "./error/error.component";
 import {ShoppingListComponent} from "./shopping-list/shopping-list.component";
 import {RecipesComponent} from "./recipes/recipes.component";
-import {NoRecipeComponent} from "./recipes/no-recipe/no-recipe.component";
+import {RecipeStartComponent} from "./recipes/recipe-start/recipe-start.component";
 import {RecipeDetailComponent} from "./recipes/recipe-detail/recipe-detail.component";
-import {EditRecipeComponent} from "./recipes/edit-recipe/edit-recipe.component";
+import {RecipeEditComponent} from "./recipes/recipe-edit/recipe-edit.component";
 
 const appRoutes: Routes = [
   {
@@ -15,9 +15,9 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {path: 'recipes', component: RecipesComponent, children: [
-      {path: '', component: NoRecipeComponent},
+      {path: '', component: RecipeStartComponent},
       {path: ':id', component: RecipeDetailComponent},
-      {path: ':id/edit', component: EditRecipeComponent},
+      {path: ':id/edit', component: RecipeEditComponent},
     ]},
   {path: 'shopping', component: ShoppingListComponent},
   {path: '**', component: ErrorComponent}
