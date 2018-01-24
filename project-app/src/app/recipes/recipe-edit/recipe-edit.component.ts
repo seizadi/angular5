@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
+import {ActivatedRoute, Params} from "@angular/router";
+
+import {IngredientModel} from "../../models/ingredient.model";
+import {RecipeModel} from "../../models/recipe.model";
+import {IngredientsService} from "../../services/ingredients.service";
+import {ShoppingListService} from "../../services/shopping-list.service";
+import {RecipesService} from "../../services/recipes.service";
 
 @Component({
   selector: 'app-recipe-edit',
@@ -7,9 +14,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeEditComponent implements OnInit {
 
-  constructor() { }
+  private recipe: RecipeModel;
+  private ingredients: IngredientModel[] = [];
+  @Output() newRecipe: boolean;
+
+  constructor(private recipeService: RecipesService,
+              private ingredientsService: IngredientsService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      let id = +params['id'];
+      if (id)
+        this.getRecipe(id);
+      else
+        this.newRecipe = true;
+    });
+  }
+
+  private getRecipe(id: number){
+    this.recipe = this.recipeService.getRecipe(id);
+    if (this.recipe) {
+      this.ingredients = this.ingredientsService.getRecipeIngredients(this.recipe.ingredientRefs);
+    }
   }
 
 }

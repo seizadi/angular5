@@ -1,12 +1,16 @@
-import {EventEmitter, Injectable, Output} from "@angular/core";
+import {EventEmitter, Injectable} from "@angular/core";
+import {Subject} from "rxjs/Subject";
+
 import {IngredientsService} from "./ingredients.service";
 import {ShoppingListModel} from "../models/shopping-list.model";
 import {IngredientModel} from "../models/ingredient.model";
-import {RecipeModel} from "../models/recipe.model";
 
 @Injectable()
 export class ShoppingListService {
-  @Output() shoppingListChange = new EventEmitter();
+  // Use Subject Observable
+  // shoppingListChange = new EventEmitter();
+  shoppingListChange = new Subject();
+
   private shoppingList: ShoppingListModel[] = [
     new ShoppingListModel(0, [0,1])
   ];
@@ -38,7 +42,7 @@ export class ShoppingListService {
 
   addShoppingList(shoppingList: ShoppingListModel){
     this.shoppingList.push(shoppingList);
-    this.shoppingListChange.emit();
+    this.shoppingListChange.next();
   }
 
 }
